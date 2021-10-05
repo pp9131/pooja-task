@@ -1,43 +1,11 @@
-<?php   
-    /* 
-    Plugin Name: New plugin
-    Plugin URI: http://www.wordpress.org 
-    Description: Create my own plugin 
-    Author: pooja 
-    Version: 1.0 
-    Author URI: http://www.ghbf.com 
-    */  
-class MyPlugin{  
-    
-      private $my_plugin_screen_name;  
-      private static $instance;  
-       /*......*/  
-    
-      static function GetInstance()  
-      {  
-            
-          if (!isset(self::$instance))  
-          {  
-              self::$instance = new self();  
-          }  
-          return self::$instance;  
-      }  
-        
-      public function PluginMenu()  
-      {  
-       $this->my_plugin_screen_name = add_menu_page(  
-                                        'My Plugin',   
-                                        'My Plugin',   
-                                        'manage_options',  
-                                        __FILE__,   
-                                        array($this, 'RenderPage'),   
-                                        plugins_url('/img/icon.png',__DIR__)  
-                                        );  
-      }  
-        
-      public function RenderPage(){  
-       ?>  
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
     margin:0;
@@ -61,13 +29,9 @@ body{
     background:#fff;
     padding:15px 20px;
     border-radius: 4px;
-    position:relative;
+    position:absolute;
 }
 
-.container.title{
-    font-size:25px;
-    font-weight:500;
-}
 .container .title::before{
     content: '';
     position: absolute;
@@ -90,7 +54,7 @@ form .user-details .input-box{
 .user-details .input-box .details{
     display:block;
     font-weight:500;
-    margin-bottom:5px;
+    margin-bottom:3px;
 }
 .user-details .input-box input{
     height:30px;
@@ -133,9 +97,9 @@ form .house-details .category{
     transition: all 0.3s ease;
 }
 
-#dot-1:checked ~ .category label .one
-    #dot-2:checked ~ .category label .two
-        #dot-3:checked ~ .category label .three{
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
 
     border-color:#d9d9d9;
     background: #9b59b6;
@@ -167,52 +131,52 @@ form .button input:hover{
         max-width:100%;
     }
     
-}
+} 
+    </style>
+</head>
 
-</style>
 <div class = "container">
 <div class = "title"></div>
-<form action = "thankyou.php">
+<form action = "thankyou.php ">
 <div class = "user-details">
-
 <div class ="input-box">
 <span class ="details">First name*</span>
-<input type= "text" placeholder="enter your first name">
+<input type= "text" >
 </div>
 
 <div class ="input-box">
 <span class ="details">Middle name*</span>
-<input type= "text" placeholder="enter your middle name">
+<input type= "text" >
 </div>
 
 <div class ="input-box">
 <span class ="details">Last name*</span>
-<input type= "text" placeholder="enter your last name">
+<input type= "text" >
 </div>
 
 <div class ="input-box">
 <span class ="details">Street Address*</span>
-<input type= "text" placeholder="enter your street address">
+<input type= "text">
 </div>
 
 <div class ="input-box">
 <span class ="details">Unit # </span>
-<input type= "text" placeholder="enter your unit">
+<input type= "text">
 </div>
 
 <div class ="input-box">
 <span class ="details">City*</span>
-<input type= "text" placeholder="enter your city">
+<input type= "text">
 </div>
 
 <div class ="input-box">
 <span class ="details">State*</span>
-<input type= "text" placeholder="enter your state">
+<input type= "text">
 </div>
 
 <div class ="input-box">
 <span class ="details">Zip Code*</span>
-<input type= "text" placeholder="enter your zip code">
+<input type= "text">
 </div>
 
 <div class ="input-box">
@@ -222,12 +186,12 @@ form .button input:hover{
 
 <div class ="input-box">
 <span class ="details">Phone Number*</span>
-<input type= "text" placeholder="enter your phone number">
+<input type= "text">
 </div>
 
 <div class ="input-box">
 <span class ="details">Email Address*</span>
-<input type= "text" placeholder="enter your email">
+<input type= "text">
 </div>
 </div>
 
@@ -258,20 +222,6 @@ form .button input:hover{
 <input type="submit" value="Submit">
 </div>
    </form> 
-</div>       
-
-
-	
-      <?php  
-      }  
-  
-      public function InitPlugin()  
-      {  
-           add_action('admin_menu', array($this, 'PluginMenu'));  
-      }  
-    
- }  
-   
-$MyPlugin = MyPlugin::GetInstance();  
-$MyPlugin->InitPlugin();  
-?> 
+</div>   
+</body>
+</html>
